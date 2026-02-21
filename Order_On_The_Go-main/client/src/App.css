@@ -1,0 +1,772 @@
+/* ============================================================
+   GLOBAL THEME & VARIABLES
+   ============================================================ */
+:root {
+  /* Brand & Core Colors */
+  --brand-blue: #1f4aa8;
+  --accent-orange: #ff7a18;
+  --accent-gradient: linear-gradient(135deg, #ff7a18, #ff5e1f);
+  
+  /* Admin Dashboard (Slate & Indigo) */
+  --admin-bg: #f8fafc;        /* Soft light grey background */
+  --admin-card: #ffffff;      /* Clean white cards */
+  --admin-accent: #6366f1;    /* Indigo accent */
+  --admin-text: #1e293b;      /* Slate text */
+  --admin-border: #e2e8f0;    /* Light border */
+  --indigo-glow: rgba(99, 102, 241, 0.15);
+  
+  /* Navbar & General UI */
+  --nav-bg: #ffffff;
+  --search-bg: #f3f6f9;
+  --ink-muted: #64748b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+/* ============================================================
+   NAVBAR STYLES
+   ============================================================ */
+.navbar {
+  background: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--admin-border);
+  padding: 12px 0 !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--admin-text);
+  font-weight: 700;
+}
+
+.brand-mark {
+  color: var(--brand-blue);
+}
+
+.nav-search {
+  background: var(--search-bg);
+  border-radius: 50px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-search:focus-within {
+  background: #ffffff;
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 4px var(--indigo-glow);
+}
+
+.nav-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--admin-text);
+}
+
+/* Navbar Pill Buttons */
+.pill-btn {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--admin-border);
+  background: white;
+  color: var(--admin-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: var(--brand-blue);
+  transform: translateY(-1px);
+}
+
+.pill-btn.accent {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 94, 31, 0.25);
+}
+
+.pill-btn.accent:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 15px rgba(255, 94, 31, 0.35);
+}
+
+/* ============================================================
+   ADMIN DASHBOARD STYLES
+   ============================================================ */
+.admin-shell {
+  background-color: var(--admin-bg) !important;
+  color: var(--admin-text) !important;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.dashboard-panel {
+  background: var(--admin-card) !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.section-title {
+  color: var(--admin-text) !important;
+  font-weight: 800 !important;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.text-indigo {
+  color: var(--admin-accent) !important;
+}
+
+/* Table Customization */
+.table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.table thead th {
+  background-color: #f1f5f9;
+  border-bottom: 2px solid var(--admin-border);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  padding: 12px;
+}
+
+.table tbody td {
+  padding: 16px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+/* Action Buttons */
+.btn-success {
+  background-color: #10b981 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 6px 16px !important;
+  font-weight: 600 !important;
+}
+
+.dark-btn.outline-accent {
+  background: var(--admin-accent) !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.dark-btn.outline-accent:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+/* --- Restaurant Management Specifics --- */
+
+/* Professional Status Badges */
+.badge-status {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-status.approved {
+    background-color: #ecfdf5;
+    color: #059669;
+    border: 1px solid #10b981;
+}
+
+.badge-status.pending {
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fbbf24;
+}
+
+/* Approve Button for Tables */
+.btn-approve {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.btn-approve:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Fix for overlapping text in tables */
+.table td {
+    white-space: nowrap;
+    padding: 1.25rem 1rem !important;
+}
+
+.table thead th {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    font-weight: 700 !important;
+}
+
+/* --- User Management Refinements --- */
+
+/* Small Circle Avatars */
+.user-avatar-sm {
+    width: 32px;
+    height: 32px;
+    background-color: #e2e8f0;
+    color: #475569;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Role-based Badges */
+.role-badge {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.role-badge.admin {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fee2e2;
+}
+
+.role-badge.restaurant {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #dbeafe;
+}
+
+.role-badge.user {
+    background-color: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+/* Table Hover Effect */
+.table-hover tbody tr:hover {
+    background-color: #f8fafc !important;
+}
+
+/* Menu Item Thumbnail (in restaurant dashboard table) */
+.menu-item-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--admin-border);
+}
+
+/* Food Image (in customer food cards) */
+.food-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--admin-border);
+}
+
+/* Image Preview in Form */
+.form-image-preview {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--admin-border);
+}
+
+/* Cart Item Thumbnail */
+.cart-item-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--admin-border);
+    flex-shrink: 0;
+}
+
+
+/* --- Restaurant Dashboard Enhancements --- */
+
+/* Custom Clean Inputs */
+.custom-input {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px 15px !important;
+    border-radius: 10px !important;
+    color: #1e293b !important;
+    font-size: 0.95rem !important;
+}
+
+.custom-input:focus {
+    border-color: var(--admin-accent) !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px var(--indigo-glow) !important;
+}
+
+/* Ensure labels inside cards look clean */
+.dashboard-panel h5 {
+    color: var(--admin-text);
+    letter-spacing: -0.5px;
+}
+
+/* Table Hover styling for Menu */
+.table-hover tbody tr:hover {
+    background-color: #f1f5f9 !important;
+    cursor: default;
+}
+
+/* Success/Error message colors */
+.text-success { color: #10b981 !important; }
+.text-danger { color: #ef4444 !important; }
+
+
+/* --- User Dashboard Layouts --- */
+.page-wrap {
+    padding: 30px 0 60px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.hero-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f7;
+}
+
+/* --- Categories Section --- */
+.category-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling on mobile */
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Hides scrollbar for clean look */
+}
+
+.category-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.category-pill:hover {
+    transform: translateY(-5px);
+}
+
+.category-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #1f4aa8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2);
+}
+
+.category-pill span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* --- Grids --- */
+.restaurant-grid, .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* --- Food & Restaurant Cards --- */
+.restaurant-card, .food-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid #edf1f7;
+    transition: all 0.3s ease;
+}
+
+.restaurant-card:hover, .food-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.restaurant-thumb {
+    height: 140px;
+    background: #1e293b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.food-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.price-tag {
+    background: #f1f5f9;
+    color: #1f4aa8;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+.food-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* --- Cart Layout & Styling --- */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px; /* Main content and sidebar */
+  gap: 30px;
+  align-items: start;
+}
+
+.cart-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #eef2f7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.cart-item-thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #f1f5f9;
+}
+
+/* Price Details Rows */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.price-row strong {
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+/* Form Elements in Cart */
+.cart-panel .form-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cart-panel .form-control, 
+.cart-panel .form-select {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.cart-panel .form-control:focus {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 4px var(--indigo-glow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   PAYMENT MODULE STYLES
+   ============================================================ */
+.payment-module {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed #e2e8f0;
+}
+
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.payment-method-card {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  position: relative;
+}
+
+.payment-method-card:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.payment-method-card.selected {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-color: var(--admin-accent);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.payment-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.payment-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.payment-method-card.selected .payment-label {
+  color: var(--admin-accent);
+}
+
+.payment-radio {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.payment-radio input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--admin-accent);
+}
+
+.payment-details-form {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 1rem;
+}
+
+.payment-details-form .form-label {
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.payment-details-form .custom-input {
+  background: white !important;
+}
+
+.payment-details-form .alert {
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Animation for form appearance */
+.animate-fadeIn {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive payment grid */
+@media (max-width: 576px) {
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   PAYMENT PROCESSING & CONFIRMATION SCREENS
+   ============================================================ */
+.payment-processing-screen,
+.payment-confirm-screen {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 30px 20px;
+}
+
+.payment-spinner {
+  display: inline-block;
+}
+
+.payment-amount-display {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.payment-success-icon {
+  font-size: 4rem;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.payment-details-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* QR Code Simulation */
+.upi-qr-placeholder {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.qr-code-simulation {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border: 3px solid #000;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+.qr-pixel {
+  background: white;
+  aspect-ratio: 1;
+}
+
+.qr-pixel.filled {
+  background: black;
+}
+
+.payment-confirm-screen .alert {
+  border-radius: 10px;
+  margin: 0;
+}
+.manage-card {
+  display: block;
+  padding: 30px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.manage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
